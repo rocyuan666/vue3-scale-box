@@ -23,7 +23,7 @@ npm install vue3-scale-box
 
 ``` javascript
 <script setup>
-import ScaleBox from "../lib/index.vue";
+import ScaleBox from "vue3-scale-box";
 </script>
 ```
 
