@@ -2,6 +2,8 @@
 
 vue3大屏适配缩放组件
 
+vue2版本：[https://github.com/rocyuan666/roc-scale-box](https://github.com/rocyuan666/roc-scale-box)
+
 ## 安装
 ```bash
 npm install vue3-scale-box
