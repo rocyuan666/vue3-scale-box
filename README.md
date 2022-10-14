@@ -5,6 +5,8 @@ vue3大屏适配缩放组件
 ## 安装
 ```bash
 npm install vue3-scale-box
+or
+yarn add vue3-scale-box
 ```
 
 ## 使用
