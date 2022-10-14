@@ -1,17 +1,28 @@
 {
   "name": "vue3-scale-box",
   "version": "0.1.0",
-  "private": true,
+  "author": "rocyuan",
+  "license": "MIT",
+  "keywords": [
+    "scale",
+    "vue",
+    "vue3",
+    "component",
+    "big screen",
+    "rocyuan",
+    "roc",
+    "rocyuan666"
+  ],
+  "description": "vue3 scale box",
+  "main": "dist/vue3ScaleBox.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name vue3ScaleBox --dest dist lib/index.vue"
   },
   "devDependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -26,5 +37,13 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "homepage": "https://github.com/rocyuan666/vue3-scale-box",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocyuan666/vue3-scale-box.git"
+  },
+  "dependencies": {
+    "echarts": "^5.4.0"
   }
 }
