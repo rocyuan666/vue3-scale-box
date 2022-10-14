@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "core-js": "^3.8.3",
+    "echarts": "^5.4.0",
     "vue": "^3.2.13",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
@@ -42,8 +43,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rocyuan666/vue3-scale-box.git"
-  },
-  "dependencies": {
-    "echarts": "^5.4.0"
   }
 }
