@@ -21,20 +21,21 @@
     "lib": "vue-cli-service build --target lib --name vue3ScaleBox --dest dist lib/index.vue"
   },
   "devDependencies": {
-    "core-js": "^3.8.3",
-    "echarts": "^5.4.0",
-    "vue": "^3.2.13",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "core-js": "^3.8.3",
+    "echarts": "^5.4.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "lint-staged": "^11.1.2",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "roc-tooltip-show": "^0.1.1",
+    "vue": "^3.2.13"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

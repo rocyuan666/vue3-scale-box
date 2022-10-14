@@ -1,4 +1,6 @@
 import * as echarts from "echarts";
+import rocTooltipShow from "roc-tooltip-show";
+
 export function chartRender() {
   var chartDom = document.getElementById("ec-demo");
   var myChart = echarts.init(chartDom);
@@ -194,4 +196,7 @@ export function chartRender() {
   };
 
   option && myChart.setOption(option);
+
+  // tooltip 自动轮播
+  rocTooltipShow(myChart, option);
 }
