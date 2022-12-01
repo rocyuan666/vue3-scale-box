@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import {} from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
 
 function initMap() {
