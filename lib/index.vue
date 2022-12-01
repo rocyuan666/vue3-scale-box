@@ -14,7 +14,14 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, defineProps } from "vue";
+import {
+  ref,
+  reactive,
+  onMounted,
+  defineProps,
+  watchEffect,
+  defineEmits,
+} from "vue";
 import { debounce } from "./debounce";
 import propsData from "./props";
 
@@ -46,5 +53,10 @@ function setScale() {
 onMounted(() => {
   setScale();
   window.addEventListener("resize", debounce(setScale, props.delay));
+});
+
+const emits = defineEmits(["scaleChange"]);
+watchEffect(() => {
+  emits("scaleChange", scale.value);
 });
 </script>

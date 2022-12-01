@@ -36,3 +36,4 @@ import ScaleBox from "vue3-scale-box";
 - ` height ` 高度 默认 ` 1080 `
 - ` bgc ` 背景颜色 默认 ` "transparent" `
 - ` delay `自适应缩放防抖延迟时间（ms） 默认 ` 100 `
+- ` @scaleChange `  缩放值发生改变的方法 可动态获取 scale 改变后的值

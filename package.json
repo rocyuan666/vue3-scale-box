@@ -1,6 +1,6 @@
 {
   "name": "vue3-scale-box",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "rocyuan",
   "license": "MIT",
   "keywords": [
@@ -21,6 +21,7 @@
     "lib": "vue-cli-service build --target lib --name vue3ScaleBox --dest dist lib/index.vue"
   },
   "devDependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
