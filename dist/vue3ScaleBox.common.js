@@ -106,7 +106,8 @@ function debounce(fn, delay) {
 /* harmony default export */ var dist_ruleSet_0_use_0_libvue_type_script_setup_true_lang_js = ({
   __name: 'index',
   props: props,
-  setup(__props) {
+  emits: ["scaleChange"],
+  setup(__props, { emit: emits }) {
 
 const props = __props
 
@@ -138,6 +139,11 @@ function setScale() {
 (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.onMounted)(() => {
   setScale();
   window.addEventListener("resize", debounce(setScale, props.delay));
+});
+
+
+(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.watchEffect)(() => {
+  emits("scaleChange", scale.value);
 });
 
 return (_ctx, _cache) => {
