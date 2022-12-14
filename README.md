@@ -1,5 +1,8 @@
 # vue3-scale-box
 
+[![npm version](https://img.shields.io/npm/v/vue3-scale-box.svg?logo=npm&style=flat-square)](https://www.npmjs.com/package/vue3-scale-box)
+[![npm downloads](https://img.shields.io/npm/dt/vue3-scale-box.svg?style=flat-square)](https://www.npmjs.com/package/vue3-scale-box)
+
 vue3大屏适配缩放组件
 
 vue2版本：[https://www.npmjs.com/package/vue2-scale-box](https://www.npmjs.com/package/vue2-scale-box)
