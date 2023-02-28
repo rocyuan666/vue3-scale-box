@@ -1,6 +1,6 @@
 {
   "name": "vue3-scale-box",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "rocyuan",
   "license": "MIT",
   "keywords": [
@@ -14,11 +14,11 @@
     "rocyuan666"
   ],
   "description": "vue3 scale box",
-  "main": "dist/vue3ScaleBox.umd.min.js",
+  "main": "dist/vue3-scale-box.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint ./lib/* ./examples/*",
-    "lib": "vue-cli-service build --target lib --name vue3ScaleBox --dest dist lib/index.vue"
+    "lib": "vue-cli-service build --target lib --name vue3-scale-box --dest dist lib/index.vue"
   },
   "devDependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",

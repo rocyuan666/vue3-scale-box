@@ -14,6 +14,12 @@ module.exports = defineConfig({
       filename: "index.html",
     },
   },
+  configureWebpack: {
+    output: {
+      // webpack配置：https://webpack.docschina.org/guides/author-libraries/#expose-the-library
+      library: "vue3ScaleBox",
+    },
+  },
   // 配置参考：https://cli.vuejs.org/zh/config/#chainwebpack
   chainWebpack: (config) => {
     config.module
