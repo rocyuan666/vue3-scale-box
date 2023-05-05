@@ -36,7 +36,6 @@ const style = reactive({
   transformOrigin: "0 0",
   left: "50%",
   top: "50%",
-  transition: "0.3s",
   zIndex: 999,
 });
 function getScale() {
