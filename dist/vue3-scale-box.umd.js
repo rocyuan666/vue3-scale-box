@@ -153,7 +153,7 @@ function debounce(fn, delay) {
   emits: ["scaleChange"],
   setup(__props, { emit: emits }) {
 
-const props = __props
+const props = __props;
 
 
 const rocScaleBox = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(null);
@@ -166,7 +166,6 @@ const style = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.reactive)({
   transformOrigin: "0 0",
   left: "50%",
   top: "50%",
-  transition: "0.3s",
   zIndex: 999,
 });
 function getScale() {
