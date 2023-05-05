@@ -31,8 +31,6 @@ const scale = ref(0);
 const style = reactive({
   position: "fixed",
   transform: "scale(var(--scale)) translate(-50%, -50%)",
-  display: "flex",
-  flexDirection: "column",
   transformOrigin: "0 0",
   left: "50%",
   top: "50%",

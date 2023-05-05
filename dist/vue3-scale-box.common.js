@@ -117,8 +117,6 @@ const scale = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.re
 const style = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.reactive)({
   position: "fixed",
   transform: "scale(var(--scale)) translate(-50%, -50%)",
-  display: "flex",
-  flexDirection: "column",
   transformOrigin: "0 0",
   left: "50%",
   top: "50%",
