@@ -26,8 +26,13 @@ import { debounce } from "./debounce";
 import propsData from "./props";
 
 const props = defineProps(propsData);
+const emits = defineEmits(["scaleChange"]);
+onMounted(() => {
+  setScale();
+  window.addEventListener("resize", debounce(setScale, props.delay));
+});
+
 const rocScaleBox = ref(null);
-const scale = ref(0);
 const style = reactive({
   position: "fixed",
   transform: "scale(var(--scale)) translate(-50%, -50%)",
@@ -36,24 +41,65 @@ const style = reactive({
   top: "50%",
   zIndex: 999,
 });
+if (props.isFlat) {
+  // 拉伸模式
+  style["transform"] =
+    "scaleX(var(--scaleX)) scaleY(var(--scaleY)) translate(-50%, -50%)";
+} else {
+  // 等比缩放模式
+  style["transform"] = "scale(var(--scale)) translate(-50%, -50%)";
+}
+
+/**
+ * 等比缩放比例 计算
+ */
+const scale = ref(0);
 function getScale() {
   const wh = window.innerHeight / props.height;
   const ww = window.innerWidth / props.width;
   return ww < wh ? ww : wh;
 }
+
+/**
+ * 不等比缩放比例 计算 X Y
+ */
+const scaleX = ref(0);
+const scaleY = ref(0);
+function getScaleX() {
+  const ww = window.innerWidth / props.width;
+  return ww;
+}
+function getScaleY() {
+  const wh = window.innerHeight / props.height;
+  return wh;
+}
+
+/**
+ * 设置缩放值
+ */
 function setScale() {
-  scale.value = getScale();
   if (rocScaleBox.value) {
-    rocScaleBox.value.style.setProperty("--scale", scale.value);
+    if (props.isFlat) {
+      // 拉伸模式
+      scaleX.value = getScaleX();
+      scaleY.value = getScaleY();
+      rocScaleBox.value.style.setProperty("--scaleX", scaleX.value);
+      rocScaleBox.value.style.setProperty("--scaleY", scaleY.value);
+    } else {
+      // 等比缩放模式
+      scale.value = getScale();
+      rocScaleBox.value.style.setProperty("--scale", scale.value);
+    }
   }
 }
-onMounted(() => {
-  setScale();
-  window.addEventListener("resize", debounce(setScale, props.delay));
-});
 
-const emits = defineEmits(["scaleChange"]);
 watchEffect(() => {
-  emits("scaleChange", scale.value);
+  let args = [scale.value];
+  if (props.isFlat) {
+    args = [scaleX.value, scaleY.value];
+  } else {
+    args = [scale.value];
+  }
+  emits("scaleChange", args);
 });
 </script>
