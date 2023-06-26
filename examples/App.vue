@@ -24,9 +24,9 @@ function scaleChange(scaleVal) {
   /*
     默认为关闭拉伸模式(等比缩放模式)
     开启拉伸模式(isFlat = true) scaleVal = [x缩放值, y缩放值]
-    关闭拉伸模式(isFlat = false) scaleVal = [等比缩放值]
+    关闭拉伸模式(isFlat = false) scaleVal = 等比缩放值
   */
-  scale.value = 1 / scaleVal[0];
+  scale.value = 1 / scaleVal;
 }
 </script>
 
