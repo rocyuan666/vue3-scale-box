@@ -137,6 +137,10 @@ function debounce(fn, delay) {
     type: Number,
     default: 100,
   },
+  isFlat: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 ;// CONCATENATED MODULE: ./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/index.vue?vue&type=script&setup=true&lang=js
@@ -156,8 +160,13 @@ function debounce(fn, delay) {
 const props = __props;
 
 
+
+(0,external_commonjs_vue_commonjs2_vue_root_Vue_.onMounted)(() => {
+  setScale();
+  window.addEventListener("resize", debounce(setScale, props.delay));
+});
+
 const rocScaleBox = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(null);
-const scale = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(0);
 const style = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.reactive)({
   position: "fixed",
   transform: "scale(var(--scale)) translate(-50%, -50%)",
@@ -166,25 +175,66 @@ const style = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.reactive)({
   top: "50%",
   zIndex: 999,
 });
+if (props.isFlat) {
+  // 拉伸模式
+  style["transform"] =
+    "scaleX(var(--scaleX)) scaleY(var(--scaleY)) translate(-50%, -50%)";
+} else {
+  // 等比缩放模式
+  style["transform"] = "scale(var(--scale)) translate(-50%, -50%)";
+}
+
+/**
+ * 等比缩放比例 计算
+ */
+const scale = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(0);
 function getScale() {
   const wh = window.innerHeight / props.height;
   const ww = window.innerWidth / props.width;
   return ww < wh ? ww : wh;
 }
+
+/**
+ * 不等比缩放比例 计算 X Y
+ */
+const scaleX = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(0);
+const scaleY = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(0);
+function getScaleX() {
+  const ww = window.innerWidth / props.width;
+  return ww;
+}
+function getScaleY() {
+  const wh = window.innerHeight / props.height;
+  return wh;
+}
+
+/**
+ * 设置缩放值
+ */
 function setScale() {
-  scale.value = getScale();
   if (rocScaleBox.value) {
-    rocScaleBox.value.style.setProperty("--scale", scale.value);
+    if (props.isFlat) {
+      // 拉伸模式
+      scaleX.value = getScaleX();
+      scaleY.value = getScaleY();
+      rocScaleBox.value.style.setProperty("--scaleX", scaleX.value);
+      rocScaleBox.value.style.setProperty("--scaleY", scaleY.value);
+    } else {
+      // 等比缩放模式
+      scale.value = getScale();
+      rocScaleBox.value.style.setProperty("--scale", scale.value);
+    }
   }
 }
-(0,external_commonjs_vue_commonjs2_vue_root_Vue_.onMounted)(() => {
-  setScale();
-  window.addEventListener("resize", debounce(setScale, props.delay));
-});
-
 
 (0,external_commonjs_vue_commonjs2_vue_root_Vue_.watchEffect)(() => {
-  emits("scaleChange", scale.value);
+  let args = [scale.value];
+  if (props.isFlat) {
+    args = [scaleX.value, scaleY.value];
+  } else {
+    args = scale.value;
+  }
+  emits("scaleChange", args);
 });
 
 return (_ctx, _cache) => {
