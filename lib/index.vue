@@ -94,7 +94,7 @@ function setScale() {
 }
 
 watchEffect(() => {
-  let args = [scale.value];
+  let args;
   if (props.isFlat) {
     args = [scaleX.value, scaleY.value];
   } else {
